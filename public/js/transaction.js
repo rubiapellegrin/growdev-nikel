@@ -2,13 +2,17 @@
 const myModal = new bootstrap.Modal("#transactionModal");
 let logged = sessionStorage.getItem("logged");
 const session = localStorage.getItem("session");
+//ok
 
 let data = {
     transactions: []
 };
 
+//ok
 
 document.getElementById("buttonLogout").addEventListener("click", logout);
+
+//ok
 
 
 //adicionar lancamento
@@ -17,7 +21,7 @@ document.getElementById("transactionsForm").addEventListener("submit", function 
 
     const value = parseFloat(document.getElementById("valorCreateInput").value);
     const descricao = document.getElementById("descricaoCreateInput").value;
-    const date = document.getElementById("dateCreateInput").value;
+    const date = document.getElementById("dataCreateInput").value;
     const type = document.querySelector('input[name="typeInput"]:checked').value;
 
     data.transactions.unshift({
@@ -26,12 +30,13 @@ document.getElementById("transactionsForm").addEventListener("submit", function 
 
     saveData(data);
     e.target.reset();
-    myModal.hiden();
-
+    myModal.hide();
 
     getTransactions();
+
     alert("Lançamento lancado com sucesso!");
-});
+}); //ok
+
 checkedLogged();
 
 function checkedLogged() {
@@ -52,17 +57,17 @@ function checkedLogged() {
     }
 
     getTransactions();
-}
+} //ok
 
 function logout() {
     sessionStorage.removeItem("logged");
     localStorage.removeItem("session");
-    windows.location.href = "index.html";
-}
+    window.location.href = "index.html";
+}  //ok
 
 function getTransactions() {
     const transactions = data.transactions;
-    const transactionsHtml = ``;
+    let transactionsHtml = ``;
 
     if (transactions.length) {
         transactions.forEach((item) => {
@@ -85,4 +90,4 @@ function getTransactions() {
 
 function saveData(data) {
     localStorage.setItem(data.login, JSON.stringify(data));
-}
+}  //ok
